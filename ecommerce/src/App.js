@@ -1,13 +1,12 @@
-import React from 'react';
-import { My_Component1 } from './components/My_component1';
-import { My_component2 } from './components/My_component2';
-import { My_component3 } from './components/My_component3';
+import React from 'react'
+import {useState} from 'react'
+import {useEffect} from 'react'
 export const App = () => {
+    const [count,setCount]=useState(1)
+    useEffect(()=>console.log(count),[count])
   return (
     <div>
-      <My_Component1 />
-      <My_component2 />
-      <My_component3 />
+      <button onClick={()=>setCount(count+1)}>change</button>
     </div>
   );
 }

@@ -1,0 +1,22 @@
+h1{
+    color:yellow;
+
+}
+.square{
+    background-color:blueviolet;
+    border:2rem solid black;
+    height:200px;
+    width:200px;
+    border radius:30%;
+    animation-name:movesquare;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+}
+@keyframes movesquare{
+    from{
+        rotate(0deg);
+    }
+    to{
+        rotate(360deg);
+    }
+}
