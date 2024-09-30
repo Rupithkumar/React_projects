@@ -1,14 +1,22 @@
-import React,{useEffect,useState} from 'react'
-import axios from 'axios'
-const App = () => {
-    const [data,setData]=useState([]);
-    useEffect(()=>{axios.get("https://jsonplaceholder.typicode.com/todos").then(response=>setData(response.data))},[])
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Menubar from './Menubar'; 
+import Home from './Home'; 
+import About from './About'; 
+import Dashboard from './Dashboard'; 
+
+export const App = () => {
   return (
     <div>
-        <ol>
-            {data.map((item,index)=><li>{item.title}</li>)}
-        </ol>
+      <BrowserRouter>
+        <Menubar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} /> 
+          <Route path='/dashboard' element={<Dashboard />} /> 
+        </Routes>
+      </BrowserRouter>
     </div>
-  )
-}
-export default App
+  );
+};
+export default App;
