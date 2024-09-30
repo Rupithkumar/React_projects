@@ -1,14 +1,14 @@
-import React from 'react'
-import {useState} from 'react'
-import {useEffect} from 'react'
-export const App = () => {
-    const [count,setCount]=useState(1)
-    useEffect(()=>console.log(count),[count])
+import React,{useEffect,useState} from 'react'
+import axios from 'axios'
+const App = () => {
+    const [data,setData]=useState([]);
+    useEffect(()=>{axios.get("https://jsonplaceholder.typicode.com/todos").then(response=>setData(response.data))},[])
   return (
     <div>
-      <button onClick={()=>setCount(count+1)}>change</button>
+        <ol>
+            {data.map((item,index)=><li>{item.title}</li>)}
+        </ol>
     </div>
-  );
+  )
 }
-
-export default App;
+export default App
