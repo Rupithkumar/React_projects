@@ -1,9 +1,10 @@
 import React from 'react';
-
+import {userParams} from 'react-router-dom'
 const About = () => { 
+  const{pname}=useParams();
   return (
     <div>
-      <h1>About Page</h1>
+      <h1>About Page {pname}</h1>
     </div>
   );
 };

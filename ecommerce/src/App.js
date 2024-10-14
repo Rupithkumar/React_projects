@@ -1,22 +1,20 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Menubar from './Menubar'; 
-import Home from './Home'; 
-import About from './About'; 
-import Dashboard from './Dashboard'; 
+import React, { useState, createContext } from 'react';
+import Home from './Home';
+import Product from './Product';
+
+export const MyContext = createContext();
 
 export const App = () => {
+  const [username] = useState('Raj'); 
+
   return (
     <div>
-      <BrowserRouter>
-        <Menubar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} /> 
-          <Route path='/dashboard' element={<Dashboard />} /> 
-        </Routes>
-      </BrowserRouter>
+      <MyContext.Provider value={username}> 
+        <Home />
+        <Product />
+      </MyContext.Provider>
     </div>
   );
 };
+
 export default App;
